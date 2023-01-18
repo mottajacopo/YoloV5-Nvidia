@@ -40,13 +40,31 @@ You need to select the  yolov5 version (in this case yolov5n) according to the v
 
 ### Start Triton Server
 
-Open an terminal
+Create the correct folders treeand copy the model
 
 ```bash
+mkdir -p triton-deploy/models/yolov5n/1/
+#mkdir -p triton-deploy/models/yolov5s/1/
+#mkdir -p triton-deploy/models/yolov5m/1/
+#mkdir -p triton-deploy/models/yolov5l/1/
+#mkdir -p triton-deploy/models/yolov5x/1/
+#mkdir -p triton-deploy/plugins
+
+cp tensorrtx/yolov5/build/yolov5n.engine triton-deploy/models/yolov5n/1/model.plan
+#cp tensorrtx/yolov5/build/yolov5s.engine triton-deploy/models/yolov5s/1/model.plan
+#cp tensorrtx/yolov5/build/yolov5m.engine triton-deploy/models/yolov5m/1/model.plan
+#cp tensorrtx/yolov5/build/yolov5l.engine triton-deploy/models/yolov5l/1/model.plan
+#cp tensorrtx/yolov5/build/yolov5x.engine triton-deploy/models/yolov5x/1/model.plan
+#cp tensorrtx/yolov5/build/libmyplugins.so triton-deploy/plugins/
+```
+
+Start the Triton server
+
+```
 bash run_triton.sh
 ```
 
-You need to edit the run_triton.sh selecting the correct version of the docker container (in this case 22.07) and yolov5 models. This script will run the Triton server docker.
+You need to edit the run_triton.sh selecting the correct version of the docker container (in this case 22.07) and yolov5 models folders(you can load multiple yolov5 models as long as you create and populate al the folders in the expected way). This script will run the Triton server docker.
 
 ### Client
 Should install tritonclient first (better if insider a python virtualenv):
