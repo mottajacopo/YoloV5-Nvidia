@@ -67,7 +67,7 @@ bash run_triton.sh
 You need to edit the run_triton.sh selecting the correct version of the docker container (in this case 22.07) and yolov5 models folders(you can load multiple yolov5 models as long as you create and populate al the folders in the expected way). This script will run the Triton server docker.
 
 ### Client
-Should install tritonclient first (better if insider a python virtualenv):
+Client inside a python virtualenv:
 ```bash
 mkvirtualenv triton_dev
 deactivate 
@@ -79,19 +79,27 @@ apt install libb64-dev
 pip install nvidia-pyindex
 pip install tritonclient[all]
 ```
-Open another terminal.
-This repo contains a python client.
+Client inside a docker:
+```bash
+cd YoloV5-NVIDIA/triton-deploy/clients/python
+docker build -t triton-client -f triton.Dockerfile .
+
+```
 
 Inference on image:
 ```bash
 cd triton-deploy/clients/python
 python client.py -m yolov5n -o data/dog_result.jpg image data/dog.jpg
+#or using docker:
+docker run -it --rm --net=host -v $(pwd):/python -w /python triton-client python3 client.py -m yolov5n -o data/dog_result.jpg image data/dog.jpg
 ```
 
 Inference on video:
 ```bash
 cd triton-deploy/clients/python
 python client.py -m yolov5n -o data/TownCentre_result.mp4 video data/TownCentre.mp4
+#or using docker:
+docker run -it --rm --net=host -v $(pwd):/python -w /python triton-client python3 client.py -m yolov5n -o data/TownCentre_result.mp4 video data/TownCentre.mp4
 ```
 
 ### Benchmark
@@ -113,4 +121,6 @@ Inference on dummy:
 ```bash
 cd triton-deploy/clients/python
 python client.py -m yolov5n dummy
+#or using docker:
+docker run -it --rm --net=host -v $(pwd):/python -w /python triton-client python3 client.py -m yolov5n dummy
 ```
