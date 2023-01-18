@@ -26,7 +26,7 @@ docker pull nvcr.io/nvidia/tritonserver:22.07-py3
 Run the following to convert yolov5 model to tensorrt and compile the lib using builded TensorRT container:
 
 ```bash
-cd tensorrt-triton-yolov5
+cd YoloV5-NVIDIA
 bash launch_tensorrt.sh yolov5n
 ```
 
