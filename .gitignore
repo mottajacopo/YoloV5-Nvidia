@@ -1,0 +1,12 @@
+**/*.plan
+**/*.engine
+**/*.pt
+**/*.wts
+**/*.cfg
+deepstream/out.mp4
+*/*/build
+*/*.ppm
+*idea*
+__pycache__/
+**/*.pyc
+**/*result.jpg
