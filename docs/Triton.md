@@ -1,10 +1,13 @@
 # YOLOv5 on Triton Inference Server with TensorRT
 
+* [NGC Docker requirements](#ngc-docker-requirements)
 * [Build TensorRT engine](#build-tensort-engine)
 * [Build TensorRT engine](#build-tensorrt-engine)
 * [Start Triton Server](#start-triton-server)
 * [Client](#client)
 * [Benchmark](#benchmark)
+
+### NGC Docker requirements
 
 You will need this docker images for NGC catalog (remember to login with your ngc account)
 
@@ -18,19 +21,9 @@ docker pull nvcr.io/nvidia/tritonserver:22.07-py3-sdk
 docker pull nvcr.io/nvidia/tritonserver:22.07-py3
 ```
 
-
-### Build docker from Dockerfile
-```bash
-cd tensorrt-triton-yolov5
-sudo docker build -t baohuynhbk/tensorrt-22.07-py3-opencv4:latest -f tensorrt.Dockerfile .
-```
-
-Docker will download the TensorRT container. You need to select the version (in this case 22.07) according to the version of Triton that you want to use later to ensure the TensorRT versions match. Matching NGC version tags use the same TensorRT version.
-
-
 ## Convert model to TensorRT engine and compile the lib 
 
-Run the following to get a running TensorRT container with our repo code:
+Run the following to convert yolov5 model to tensorrt and compile the lib using builded TensorRT container:
 
 ```bash
 cd tensorrt-triton-yolov5
@@ -39,7 +32,7 @@ bash launch_tensorrt.sh yolov5n
 
 Or inside the container the following will run:
 ```bash
-bash convert_tet.sh yolov5n
+bash convert_trt.sh yolov5n
 ```
 You need to select the  yolov5 version (in this case yolov5n) according to the version you want to convert. This will generate a file called `yolov5n.engine`, which is our serialized TensorRT engine. Together with `libmyplugins.so` we can now deploy to Triton Inference Server.
 
@@ -59,10 +52,11 @@ You need to edit the run_triton.sh selecting the correct version of the docker c
 Should install tritonclient first (better if insider a python virtualenv):
 ```bash
 mkvirtualenv triton_dev
+deactivate 
 workon triton_dev
 
-sudo apt update
-sudo apt install libb64-dev
+apt update
+apt install libb64-dev
 
 pip install nvidia-pyindex
 pip install tritonclient[all]

@@ -18,6 +18,17 @@ This project is based on (https://github.com/ultralytics/yolov5)
 * [nvidia-driver]	> 515	
 * [python-pip]	> 21.06	
 
+### Build docker from Dockerfile
+
+This docker is needed to deploy yolov5 on Triton or Deepstream
+
+```bash
+cd Yolov5-NVIDIA
+docker build -t tensorrt-22.07-py3-opencv4:latest -f tensorrt.Dockerfile .
+```
+
+Docker will download the TensorRT container. You need to select the version (in this case 22.07) according to the version of Triton that you want to use later to ensure the TensorRT versions match. Matching NGC version tags use the same TensorRT version.
+
 ### Getting started
 
 * [YOLOv5 Deepstream usage](docs/Deepstream.md)
