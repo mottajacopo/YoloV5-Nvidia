@@ -36,7 +36,7 @@ You need to edit the run_deepstream.sh selecting the correct version of the dock
 Run the following to convert yolov5 model to wts and compile the lib using builded TensorRT container:
 
 ```bash
-cd tensorrt-triton-yolov5
+cd YoloV5-NVIDIA
 bash launch_wts.sh yolov5n
 ```
 
