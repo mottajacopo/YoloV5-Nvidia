@@ -31,7 +31,7 @@ Docker will download the TensorRT container. You need to select the version (in 
 
 ### Getting started
 
-* [YOLOv5 Deepstream usage](docs/Deepstream.md)
-* [YOLOv5 Triton usage](docs/Triton.md)
+* [YOLOv5 Deepstream usage](deepstream/Deepstream.md)
+* [YOLOv5 Triton usage](triton-deploy/Triton.md)
 
 
