@@ -1,6 +1,6 @@
 # YOLOv5 on Triton Inference Server or Deepstream with TensorRT
 
-This repository shows how to deploy YOLOv5 as an optimized [TensorRT] engine to [Triton Inference Server].
+This repository shows how to deploy YOLOv5 as an optimized [TensorRT] engine to [Triton Inference Server] and [Deepstream].
 
 This project is based on (https://github.com/wang-xinyu/tensorrtx)  
 This project is based on (https://github.com/NVIDIA/triton-inference-server)  
