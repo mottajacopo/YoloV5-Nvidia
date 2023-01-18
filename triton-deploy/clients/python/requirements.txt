@@ -1,0 +1,12 @@
+gevent==21.1.2
+geventhttpclient==1.4.4
+greenlet==1.1.0
+grpcio==1.38.0
+numpy==1.20.3
+opencv-python==4.5.2.52
+protobuf==3.17.1
+python-rapidjson==1.0
+six==1.16.0
+tritonclient==2.8.0
+zope-event==4.5.0
+zope-interface==5.4.0
