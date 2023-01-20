@@ -15,7 +15,7 @@ This project is based on (https://github.com/ultralytics/yolov5)
 * [nvidia-container-toolkit] >1.3.0-1	
 * [nvidia-container-runtime]	3.4.0-1	
 * [nvidia-docker2]	2.5.0-1	
-* [nvidia-driver]	> 515	
+* [nvidia-driver] 
 * [python-pip]	> 21.06	
 
 ### Build docker from Dockerfile
