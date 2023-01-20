@@ -29,6 +29,8 @@ docker build -t tensorrt-22.07-py3-opencv4:latest -f tensorrt.Dockerfile .
 
 Docker will download the TensorRT container. You need to select the version (in this case 22.07) according to the version of Triton that you want to use later to ensure the TensorRT versions match. Matching NGC version tags use the same TensorRT version.
 
+> **_NOTE:_**  Your installed CUDA version has to be >= to the one of the docker container.
+
 ### Getting started
 
 * [YOLOv5 Deepstream usage](deepstream/)
