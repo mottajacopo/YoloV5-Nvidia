@@ -9,6 +9,8 @@
 
 ### NGC Docker requirements
 
+> **_NOTE:_**  Your system CUDA version has to be >= to the one of the docker container. Choose the docker version accordingly.
+
 You will need this docker images for NGC catalog (remember to login with your ngc account)
 
 ```bash
