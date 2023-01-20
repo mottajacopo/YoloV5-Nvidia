@@ -52,12 +52,14 @@ mkdir -p triton-deploy/models/yolov5n/1/
 #mkdir -p triton-deploy/models/yolov5x/1/
 #mkdir -p triton-deploy/plugins
 
+cp tensorrtx/yolov5/build/libmyplugins.so triton-deploy/plugins/
+
 cp tensorrtx/yolov5/build/yolov5n.engine triton-deploy/models/yolov5n/1/model.plan
 #cp tensorrtx/yolov5/build/yolov5s.engine triton-deploy/models/yolov5s/1/model.plan
 #cp tensorrtx/yolov5/build/yolov5m.engine triton-deploy/models/yolov5m/1/model.plan
 #cp tensorrtx/yolov5/build/yolov5l.engine triton-deploy/models/yolov5l/1/model.plan
 #cp tensorrtx/yolov5/build/yolov5x.engine triton-deploy/models/yolov5x/1/model.plan
-#cp tensorrtx/yolov5/build/libmyplugins.so triton-deploy/plugins/
+
 ```
 
 Start the Triton server
