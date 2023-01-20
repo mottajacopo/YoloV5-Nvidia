@@ -27,6 +27,7 @@ This docker is needed to deploy yolov5 on Triton or Deepstream
 ```bash
 cd Yolov5-NVIDIA
 docker build -t tensorrt-py3-opencv4:22.07 -f tensorrt.Dockerfile .
+docker tag tensorrt-py3-opencv4:22.07 tensorrt-py3-opencv4:latest
 ```
 
 Docker will download the TensorRT container. You need to select the version (in this case 22.07) according to the version of Triton that you want to use later to ensure the TensorRT versions match. Matching NGC version tags use the same TensorRT version.  
